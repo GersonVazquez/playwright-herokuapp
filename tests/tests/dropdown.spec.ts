@@ -7,7 +7,7 @@ test('Dropdown', async ({ page }) => {
         await page.goto('https://the-internet.herokuapp.com/dropdown');
     });
 
-    await test.step('Drowpdown y seleccionando opcion 2', async () => {
+    await test.step('Dropdown y seleccionando opcion 2', async () => {
         await page.locator('#dropdown').selectOption('2');
     });
     
