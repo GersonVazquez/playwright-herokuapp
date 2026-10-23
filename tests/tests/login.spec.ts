@@ -10,15 +10,13 @@ test('Login de Herokuapp', async ({ page }) => {
 
         await test.step('Ingresando user y login', async () => {
            await page.getByRole('textbox', { name: 'Username' }).fill(username);
-           await page.getByRole('textbox', { name: 'Password' }).fill(password);
+           await page.getByLabel('password').fill(password);
            await page.getByRole('button', { name: ' Login' }).click();
         });
 
         await test.step('Redirigido a la zona segura', async () => {
-            await expect(page).toHaveURL(/secure/);
-        })
-        
-        
-        
-        
+            await expect(page).toHaveURL('https://the-internet.herokuapp.com/secure');
+            await expect(page.getByRole('link', { name: 'Logout' })).toBeVisible();
+        });
+
     });
