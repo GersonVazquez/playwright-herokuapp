@@ -10,6 +10,10 @@ test('Dropdown', async ({ page }) => {
     await test.step('Dropdown y seleccionando opcion 2', async () => {
         await page.locator('#dropdown').selectOption('2');
     });
+
+    await test.step('Verificando que la opcion 2 es la seleccionada', async () => {
+        await expect(page.locator('#dropdown')).toHaveValue('2');
+    })
     
     
 }); 
