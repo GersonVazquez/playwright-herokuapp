@@ -8,7 +8,11 @@ test('Checkboxes', async ({ page }) => {
     await test.step('Tildo el primero y destildo el segundo', async () => {
         await page.getByRole('checkbox').first().check();
         await page.getByRole('checkbox').nth(1).uncheck();
-        await expect(page.getByRole('checkbox').first(), 'El checkbox esta chequeado').toBeChecked();
+    });
+    
+    await test.step('Verifico que el primero este tildado y el segundo destildado', async () => {
+        await expect(page.getByRole('checkbox').first()).toBeChecked();
+        await expect(page.getByRole('checkbox').nth(1)).not.toBeChecked();
     });
     
     
